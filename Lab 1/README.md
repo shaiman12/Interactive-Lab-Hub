@@ -172,7 +172,7 @@ Device 3: https://drive.google.com/file/d/17V8TnNVHrqO6JiQrg880nWhypTot08kd/view
 
 \*\***Please indicate anyone you collaborated with on this Lab.**\*\* <br>
 The group as a whole did a great job collaborating on work and providing feedback in order to iterate through the design process smoothly. 
-Thank you to our great film creators - Jon, Adriana, and Shai! 
+Thank you to our great film creators - Jon, Ariana, and Shai! 
 Thank you Rachel for drawing the prototypes and Amando for making sure everything is inplace. 
 
 Thank you OpenAI for creating Dall-E which we used to create the storyboard (+Jon's Photoshop skills)
