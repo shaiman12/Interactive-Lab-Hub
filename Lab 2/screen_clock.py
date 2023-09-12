@@ -75,7 +75,7 @@ while True:
     draw.rectangle((0, 0, width, height), outline=0, fill=400)
 
     days_passed += 0.6
-    astrology_clock.create_astrology_clock(SIMULATE_TIME_PASSING, days_passed)
+    astrology_clock.create_astrology_clock()
 
     image = Image.open("astrology_clock.png")
 
