@@ -34,7 +34,7 @@ Before the start of lab Thursday, [pull changes from the Interactive Lab Hub](ht
 
   ```
   Interactive-Lab-Hub $ git remote add upstream https://github.com/FAR-Lab/Interactive-Lab-Hub.git
-  Interactive-Lab-Hub $ git pull upstream Fall2022
+  Interactive-Lab-Hub $ git pull upstream Fall2023
   ```
   
   The reason why we are adding a upstream with **course lab-hub** instead of yours is because the local Interactive-Lab-Hub folder is linked with your own git repo already. Try typing ``git remote -v`` and you should see there is the origin branch with your own git repo. We here add the upstream to get latest updates from the teaching team by pulling the **course lab-hub** to your local machine. After your local folder got the latest updates, push them to your remote git repo by running:
@@ -96,6 +96,12 @@ pi@raspberrypi:~ $ source venv/bin/activate
 
 ```
 ### Setup Personal Access Tokens on GitHub
+Set your git name and email so that commits appear under your name.
+```
+git config --global user.name "Your Name"
+git config --global user.email "yourNetID@cornell.edu"
+```
+
 The support for password authentication of GitHub was removed on August 13, 2021. That is, in order to link and sync your own lab-hub repo with your Pi, you will have to set up a "Personal Access Tokens" to act as the password for your GitHub account on your Pi when using git command, such as `git clone` and `git push`.
 
 Following the steps listed [here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) from GitHub to set up a token. Depends on your preference, you can set up and select the scopes, or permissions, you would like to grant the token. This token will act as your GitHub password later when you use the terminal on your Pi to sync files with your lab-hub repo.
@@ -130,7 +136,7 @@ We have asked you to equip the [Adafruit MiniPiTFT](https://www.adafruit.com/pro
 
 <img src="https://cdn-learn.adafruit.com/assets/assets/000/082/842/large1024/adafruit_products_4393_iso_ORIG_2019_10.jpg" height="200" />
 
-The Raspberry Pi 3 has a variety of interfacing options. When you plug the pi in the red power LED turns on. Any time the SD card is accessed the green LED flashes. It has standard USB ports and HDMI ports. Less familiar it has a set of 20x2 pin headers that allow you to connect a various peripherals.
+The Raspberry Pi 4 has a variety of interfacing options. When you plug the pi in the red power LED turns on. Any time the SD card is accessed the green LED flashes. It has standard USB ports and HDMI ports. Less familiar it has a set of 20x2 pin headers that allow you to connect a various peripherals.
 
 <img src="https://maker.pro/storage/g9KLAxU/g9KLAxUiJb9e4Zp1xcxrMhbCDyc3QWPdSunYAoew.png" height="400" />
 
@@ -138,7 +144,7 @@ To learn more about any individual pin and what it is for go to [pinout.xyz](htt
 
 ### Hardware (you have already done this in the prep)
 
-From your kit take out the display and the [Raspberry Pi 3](https://cdn-shop.adafruit.com/970x728/3775-07.jpg)
+From your kit take out the display and the [Raspberry Pi 4](https://cdn-shop.adafruit.com/970x728/3775-07.jpg)
 
 Line up the screen and press it on the headers. The hole in the screen should match up with the hole on the raspberry pi.
 
@@ -208,6 +214,8 @@ Please sketch/diagram your clock idea. (Try using a [Verplank digram](http://www
 <img src="media/sketch1.jpg">
 <img src="media/sketch2.jpeg">
 
+***Museum artwork by Rachel Minkowitz***
+
 **We strongly discourage and will reject the results of literal digital or analog clock display.**
 
 
@@ -223,18 +231,36 @@ After you edit and work on the scripts for Lab 2, the files should be upload bac
 
 After that, Git will ask you to login to your GitHub account to push the updates online, you will be asked to provide your GitHub user name and password. Remember to use the "Personal Access Tokens" you set up in Part A as the password instead of your account one! Go on your GitHub repo with your laptop, you should be able to see the updated files from your Pi!
 
+**DESCRIPTION**
+
+We designed a 'zodiac clock' which ticks each day and shows the progress through the current Zodiac season. For example, the Virgo season in 2023 spans from August 23 to September 22. On September 11, we would be 63.33% through Virgo season, as shown in the fabulous image below:
+
+<img src="media/clockAndDate.jpg" />
+
+***Image by Rachel Minkowitz***
+
+**INSTRUCTIONS FOR USE**
+
+Run `screen_clock.py` in order for the clock to appear on the LCD screen. The main logic for our clock is located in `astrology_clock.py`
+
 
 ## Part F. 
 ## Make a short video of your modified barebones PiClock
 
 [![Video](https://img.youtube.com/vi/stTStYaP5z0/0.jpg)](https://www.youtube.com/watch?v=stTStYaP5z0)
-
+<br>
 **Please click to play @ Youtube**
+***Filmography by Jon Caceres***
+<br>
 
 ## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
 
+In a future iteration, we plan to allow the user to interact with the app using the buttons on the LCD screen and display the current date's horoscope via an API.
+
 <img src="media/sketch3.jpg">
+
+***Award-winning art by Ariana Bhigroog***
 
 # Prep for Part 2
 
