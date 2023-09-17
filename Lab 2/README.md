@@ -286,5 +286,7 @@ https://drive.google.com/file/d/1jxUUnSxp9vvoOmINi4mQ_n83M51_BDLD/view?usp=drive
 
 <h1>Contributions</h1>
 <p>All group members contributed to the codebase for this assignment</p>
-<p>Jon Caceres spent extra hours contributing to the codebase and the masterful creation of the video of the device</p>
+<p>Jon Caceres and Ariana Bhigroog spent extra hours contributing to the codebase</p>
+<p>Jon Caceres created the masterful video of the device</p>
+<p> Shai Aarons wrote this document </p>
 <p>Chat GPT was used for help in the initial code setup as well as for helping with troubleshooting when we were blocked</p>
