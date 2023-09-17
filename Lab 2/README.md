@@ -285,6 +285,6 @@ In part 2 of the lab, we extend our device to have a new interface that requires
 https://drive.google.com/file/d/1jxUUnSxp9vvoOmINi4mQ_n83M51_BDLD/view?usp=drivesdk
 
 <h1>Contributions</h1>
-All group members contributed to the codebase for this assignment
-Jon Caceres spent extra hours contributing to the codebase and the masterful creation of the video of the device
-Chat GPT was used for help in the initial code setup as well as for helping with troubleshooting when we were blocked
+<p>All group members contributed to the codebase for this assignment</p>
+<p>Jon Caceres spent extra hours contributing to the codebase and the masterful creation of the video of the device</p>
+<p>Chat GPT was used for help in the initial code setup as well as for helping with troubleshooting when we were blocked</p>
