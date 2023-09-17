@@ -273,10 +273,18 @@ In a future iteration, we plan to allow the user to interact with the app using 
 
 Pull Interactive Lab Hub updates to your repo.
 
-Modify the code from last week's lab to make a new visual interface for your new clock. You may [extend the Pi](Extending%20the%20Pi.md) by adding sensors or buttons, but this is not required.
+In part 2 of the lab, we extend our device to have a new interface that requires interaction with users. Taking in feedback from peers, we extend the Astrology clock to include features that make the purpose of the clock more clear. We also enable the user to interact with the clock by using the buttons on the device interface. We document all our changes below:
 
-As always, make sure you document contributions and ideas from others explicitly in your writeup.
+1) We added a text interface on top of the clock display to demonstrate to users the progress through an astrological period. We show the progress through the astrological period via a percentage point. Based on feedback from peers, we also have included instructive information about how to use the device with the comment: "Press any button to continue." This is shown below:
+   <img width="483" alt="Screen Shot 2023-09-17 at 17 28 16" src="https://github.com/shaiman12/Interactive-Lab-Hub/assets/48441513/121c11f0-38e1-45f8-9162-23f09a794705">
+2) Horoscope functionality was added to the device. A horoscope is defined as "a forecast of a person's future, typically including a delineation of character and circumstances, based on the relative positions of the stars and planets at the time of that person's birth." Our device can now fetch a user's daily horoscope based on the position on the astrology clock. We added a second interface for the user to interact with after they press a button. This new interface allows users to scroll through the available star signs (according to their birth date) and select their matching sign. The user selects their sign by pressing both of the available buttons at the same time while the pointer is on their selected sign. Once the user selects their sign, they are shown their horoscope on a new screen. We fetch horoscopes for users via API calls and web scraping using the Python library Beautiful Soup. The user has the functionality to go back to the available star signs by pressing both buttons at the same time again, as well as return to the clock by selecting to exit the horoscope menu. Some of these interfaces are shown below:
+ <p float="left">
+<img width="852" alt="Screen Shot 2023-09-17 at 17 39 40" src="https://github.com/shaiman12/Interactive-Lab-Hub/assets/48441513/a2681741-5a59-49a4-9bff-5b7ca71ad8cd">
+ </p>
+ <h1>Video of interactions</h1>
+https://drive.google.com/file/d/1jxUUnSxp9vvoOmINi4mQ_n83M51_BDLD/view?usp=drivesdk
 
-You are permitted (but not required) to work in groups and share a turn in; you are expected to make equal contribution on any group work you do, and N people's group project should look like N times the work of a single person's lab. What each person did should be explicitly documented. Make sure the page for the group turn in is linked to your Interactive Lab Hub page. 
-
-
+<h1>Contributions</h1>
+All group members contributed to the codebase for this assignment
+Jon Caceres spent extra hours contributing to the codebase and the masterful creation of the video of the device
+Chat GPT was used for help in the initial code setup as well as for helping with troubleshooting when we were blocked
