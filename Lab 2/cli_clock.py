@@ -55,4 +55,5 @@ while True:
         return get_zodiac_sign_and_progress(day, month, year)
 
     if __name__ == "__main__":
-        sign, progress = current_zodiac_sign_and_progress() 
+        sign, progress = current_zodiac_sign_and_progress()
+        print(f"We are {progress:.10f}% through being a {sign}.")
