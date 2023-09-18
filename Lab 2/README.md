@@ -216,9 +216,6 @@ Please sketch/diagram your clock idea. (Try using a [Verplank digram](http://www
 
 ***Museum artwork by Rachel Minkowitz***
 
-**We strongly discourage and will reject the results of literal digital or analog clock display.**
-
-
 \*\*\***A copy of your code should be in your Lab 2 Github repo.**\*\*\*
 
 After you edit and work on the scripts for Lab 2, the files should be upload back to your own GitHub repo! You can push to your personal github repo by adding the files here, commiting and pushing.
@@ -242,6 +239,8 @@ We designed a 'zodiac clock' which ticks each day and shows the progress through
 **INSTRUCTIONS FOR USE**
 
 Run `screen_clock.py` in order for the clock to appear on the LCD screen. The main logic for our clock is located in `astrology_clock.py`
+
+***Some of our script was coded using the assistance of ChatGPT***
 
 
 ## Part F. 
@@ -273,20 +272,43 @@ In a future iteration, we plan to allow the user to interact with the app using 
 
 Pull Interactive Lab Hub updates to your repo.
 
+Modify the code from last week's lab to make a new visual interface for your new clock. You may [extend the Pi](Extending%20the%20Pi.md) by adding sensors or buttons, but this is not required.
+
 In part 2 of the lab, we extend our device to have a new interface that requires interaction with users. Taking in feedback from peers, we extend the Astrology clock to include features that make the purpose of the clock more clear. We also enable the user to interact with the clock by using the buttons on the device interface. We document all our changes below:
 
-1) We added a text interface on top of the clock display to demonstrate to users the progress through an astrological period. We show the progress through the astrological period via a percentage point. Based on feedback from peers, we also have included instructive information about how to use the device with the comment: "Press any button to continue." This is shown below:
-   <img width="483" alt="Screen Shot 2023-09-17 at 17 28 16" src="https://github.com/shaiman12/Interactive-Lab-Hub/assets/48441513/121c11f0-38e1-45f8-9162-23f09a794705">
-2) Horoscope functionality was added to the device. A horoscope is defined as "a forecast of a person's future, typically including a delineation of character and circumstances, based on the relative positions of the stars and planets at the time of that person's birth." Our device can now fetch a user's daily horoscope based on the position on the astrology clock. We added a second interface for the user to interact with after they press a button. This new interface allows users to scroll through the available star signs (according to their birth date) and select their matching sign. The user selects their sign by pressing both of the available buttons at the same time while the pointer is on their selected sign. Once the user selects their sign, they are shown their horoscope on a new screen. We fetch horoscopes for users via API calls and web scraping using the Python library Beautiful Soup. The user has the functionality to go back to the available star signs by pressing both buttons at the same time again, as well as return to the clock by selecting to exit the horoscope menu. Some of these interfaces are shown below:
- <p float="left">
-<img width="852" alt="Screen Shot 2023-09-17 at 17 39 40" src="https://github.com/shaiman12/Interactive-Lab-Hub/assets/48441513/a2681741-5a59-49a4-9bff-5b7ca71ad8cd">
- </p>
- <h1>Video of interactions</h1>
+tl;dr: steps to work the clock:
+1. with this repo on your local pi machine run `screen_clock.py` -> you should see the horoscope clock
+2. click either button to interact with the clock
+3. scroll up or down using either button to reach your birth sign
+4. select the sign by pressing both buttons at the same time while the arrow is set on your choice of sign
+5. see your daily horoscope!
+6. to go back to the sign menu - press both button at the same time
+7. to go back to the horoscope clock - place the pointer on "go back to clock" on the menu and press both buttons at the same time
+
+A. We added a text interface on top of the clock display to demonstrate to users the progress through an astrological period. We show the progress through the astrological period via a percentage point. For example, on September 17th, we are 81% through the Virgo horoscope sign. Based on feedback from peers, we also have included instructive information about how to use the device with the comment: "Press any button to continue." This is shown below:
+
+<img width="483" alt="268529167-121c11f0-38e1-45f8-9162-23f09a794705" src="https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/2fd2b1f4-545c-4e1c-923b-82fb8dd5cdc1">
+
+
+B. We added daily horoscope functionality to the device. A horoscope is defined as "a forecast of a person's future, typically including a delineation of character and circumstances, based on the relative positions of the stars and planets at the time of that person's birth." Our device can now fetch a user's daily horoscope based on their astrological sign (i.e. Leo, Virgo, Libra) and today's position of the horoscope on the astrology clock. In order to do this - we added a second interface for the user to interact with after they are prompted to press either button. The second interface allows users to scroll through the available star signs (according to their birth date) and make their selection. The user selects their sign by pressing both of the available buttons at the same time while the arrow is pointing at their selected sign. Once the user selects their sign, they are shown their daily horoscope reading on a new screen. We fetch daily horoscopes for users via API calls and web scraping using the Python library Beautiful Soup. The user can then go back to the available star signs by pressing both buttons at the same time again, as well as return to the clock by selecting to exit the horoscope menu. Some of these interfaces are shown below:
+<img width="852" alt="268529522-a2681741-5a59-49a4-9bff-5b7ca71ad8cd" src="https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/bb9fb3e8-d979-41c6-bb5a-fd3644bde976">
+
+
+Video of interactions:
+
 https://drive.google.com/file/d/1jxUUnSxp9vvoOmINi4mQ_n83M51_BDLD/view?usp=drivesdk
 
-<h1>Contributions</h1>
-<p>All group members contributed to the codebase for this assignment</p>
-<p>Jon Caceres and Ariana Bhigroog spent extra hours contributing to the codebase</p>
-<p>Jon Caceres created the masterful video of the device</p>
-<p> Shai Aarons wrote this document </p>
-<p>Chat GPT was used for help in the initial code setup as well as for helping with troubleshooting when we were blocked</p>
+
+# Contributions
+
+All group members collaborated to contribute to the codebase for this assignment
+
+Jon Caceres and Ariana Bhigroog spent extra hours contributing to the codebase
+
+Jon Caceres created the masterful video of the device
+
+Shai Aarons wrote this document
+
+Chat GPT was used for help in the initial code setup as well as for helping with troubleshooting when we were blocked
+
+
