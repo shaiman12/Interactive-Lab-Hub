@@ -129,6 +129,8 @@ From a remote browser on the same network, check to make sure your webserver is 
 Storyboard and/or use a Verplank diagram to design a speech-enabled device.
 
 **Storyboard:**
+![IMG_6377](https://github.com/arianab68/Interactive-Lab-Hub/assets/70418227/c2179bfb-5abf-4ad0-b2aa-ff8856c6b251)
+
 
 **Verplank Diagram:**
 ![IMG_1663](https://github.com/arianab68/Interactive-Lab-Hub/assets/70418227/03afddab-939d-4905-baca-f334898717c4)
@@ -149,6 +151,10 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device.
 ## Acting out the dialogue
 
 Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing.  Please record this interaction (for example, using Zoom's record feature).
+
+**Recording:** 
+
+https://drive.google.com/file/d/1CsTcaqhqGRCiWhEwGoUZI8e1PQzRb178/view?usp=drivesdk
 
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
 
