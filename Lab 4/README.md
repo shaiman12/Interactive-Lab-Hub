@@ -410,8 +410,68 @@ The following resources are good starts on how to stream video:
 ### Part G
 ### Record
 
-Document all the prototypes and iterations you have designed and worked on! Again, deliverables for this lab are writings, sketches, photos, and videos that show what your prototype:
-* "Looks like": shows how the device should look, feel, sit, weigh, etc.
-* "Works like": shows what the device can do
-* "Acts like": shows how a person would interact with the device
+[VIDEO OF PROCESS AND DEMO](https://drive.google.com/file/d/1SH8n51JZRg1f9AlG9LcrBl-lvNz1HhX7/view?usp=sharing)
+
+Bender Security is a unique and playful security device designed to protect your space. Combining elements of science fiction and modern technology, this 3D printed Bender head is a multi-functional guardian that "Looks like" an inconspicuos robotic character, "Works like" a security robot, and "Acts like" an interactive motion (?human?) detection security system.
+
+**1. Looks Like**
+
+![71917759063__B1B7C36F-3D67-4EA0-9CF0-68702A7C610B](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/94b81d2f-83a0-4e05-9113-ecb628a61332)
+![PNG image](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/267fceb4-ebd7-43e3-bdad-babf7b5c97ec)
+<img width="525" alt="Screen Shot 2023-10-19 at 2 07 04 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/70ceacec-c9d8-4366-8898-24fbafd1f996">
+
+
+*Appearance:* Bender Security features a custom 3D printed Bender head with attention to detail, capturing the iconic look of the character from the animated series "Futurama." It stands approximately 25 cm tall, and the Bender head rests on a wooden base designed for rotation.
+
+*Materials:* The external Bender head is crafted from high-quality, durable 3D printed materials, which makes the device lightweight yet robust, ensuring longevity and an authentic robot representation of the character. Some other materials used for assembly include wooden dowels, velcro, hot glue, wooden base and tissues (?)  
+
+*Color Scheme:* The Bender head retains the character's metallic gray color with black accents and shiny white teeth. After the Bender head was sanded down to remove any residual 3D printing imperfections, this color was accomplished using spray paint and spray painting skills. 
+
+*Weight and Dimensions:* The entirety of the device (including the raspeberry pi and camera) weighs about 2 pounds and measures 24.765cm in height, 6.5cm in width, and 6cm in length. We wanted Bender Security to be small enough to be propped on a desktop without taking up too much space and be light enough that it's portable and can be easily brought to a location that you want to monitor at the moment. 
+
+
+**2. Works Like**
+
+*Motion Detection:* Bender Security rotates 360 degrees while monitoring motion at all times. The completed code for Bender Security can be found in the `bender_home_security/` folder. This folder includes the code for the various sensor components that we have incorporated. These sensors all act together to work like an effective security measure by sensing movement and sending a warning/scaring away the intruder.
+- Camera: Located within Bender's mouth, a discreet camera serves as the primary means of identifying motion. The camera has a wide-angle view, allowing it to capture a broad area and 'sends a message' to the lasers and servo propeller to activate "Alert mode" once it senses an intruder. The code for motion detection is in `motion_detection.py`, this code uses `darknet` and `YoloV4` python libraries to detect humans specifically. Once the people are detected, the servo motor stops. We did notice a lag in what the camera was seeing and it's processing time - which effected Bender's response to the human. We looked into reducing the frame rate but actually reducing the resolution and 'Optimizing the Yolo input' fixed the issue. There is still a minor lag between when Bender sees someone until he goes into 'Alert mode'. 
+- Servo Rotation: By default, the Bender Security rotates 360 degrees continuously when not in "Alert mode." When Bender Security goes into "Alarm mode" (senses an intruder) the servo motor stops its rotation. This not only makes it an amusing conversation piece but also provides an unobstructed view of its surroundings. There were a couple of considerations we made when setting up the servo motor, one being speed and rotation angle. If the speed was too fast, the wire would wrap around the motor and would force the propeller off the base. Additionally if the servo continuosly rotates at 360 degrees, the wire would wrap around the base too many times and tangle. 
+- Lasers: When motion is detected, aside from halting rotation, Bender security's eyes light up with laser-like beams, creating an intimidating presence. These lasers are controlled with code in the `laser.py` file. We make sure that both the lasers turn on at the same time. Thank you Shai for insisting on lasers in this project.
+- Audio Playback: Bender Security is equipped with a speaker on the camera that can produce sound effects and voice lines from the "Futurama" series. When in Alarm mode, Bender Security says the infamous line, "Kill all humans," adding an element of humor to its security role. The edits for the audio can be found in `security.py`. One major consideration that was made is the level of the volume. At first, the sound was too low and could not be heard but after changing some of the code, Bender's exclamation was heard loud and clear through Bender's head. 
+
+What would be cool eventually:
+Imagine a world where we could have *Remote Access* to Bender Security. The device would be connected to a mobile app, allowing users to remotely control its movements, lighting, and sound effects, providing additional safety, flexibility and functionality while people are not near Bender Security.
+
+
+**3. Acts Like**
+
+*Interaction:* Interacting with the Bender Security Bender is intended to be frightning but in fact is both fun and engaging. Users can activate its rotation, laser and sound features by just moving in front of the camera that's expertly positioned inside Bender's mouth. 
+
+*Customizable Responses:* Bender Security can actually be programmed to deliver different lines from the "Futurama" series, making it a versatile and humorous companion in various social settings.
+
+*Security Response:* When the device senses motion, it responds by stopping its rotation, lighting up its laser eyes, and delivering the iconic "Kill all humans" line. This response is designed to deter potential intruders.
+
+Video of interaction only: https://github.com/ironclock/Interactive-Lab-Hub/assets/70418227/e6bae1a1-4881-43de-b010-b3b5a9bbe373
+
+
+
+
+***
+**Reflection**
+This lab proved to be a journey. At first we started off wanting to incorporate everything that we discussed in Part A, but as time went on we scaled our idea down - enough that it was still super cool, but doable. To start, Jon began 3D printing Bender's head in the beginning of the week. Looking back, coding the different sensors to interact with each other was easy in comparison to the physical assembly. The hardest part of this lab was incorporating all the hardware components into Bender's head harmoniously. We did not expect all the physical components to be so big or 'wirey' and things may have 'looked better in theory'. We started with making sure that the camera was suspended inside Bender's head so that the camera was viewing the world without being obstructed by Bender's mouth. This proved to be challenging, but with some dowel action and extra strength velcro, camera was situated correctly. Incorporating the lasers was also complicated as they had more wiring than anticipated. We initially thought that the pi would be situated inside Bender's head - thereby being concealed, but due to limited space, we opted to leave the pi outside. This ended up working in our favor as we had the video streamed to the pi display and we could test the camera through that. The last thing that was complicated to assemble was the servo motor and base wooden board. Since the motor is a tad off center from the pack it was essential to balance Bender's head with all its components on the board while ensuring that when the board rotates, Bender's head is significantly balanced and would not tip over. With the help of hot glue and tape, Bender's head is secure on the platform and will hopefully stand the test of time. 
+
+***
+**Process:**
+
+[VIDEO OF PROCESS & DEMO](https://drive.google.com/file/d/1SH8n51JZRg1f9AlG9LcrBl-lvNz1HhX7/view?usp=sharing)
+
+| | | |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/75b4bad1-b57f-4b60-b8be-dca3803a16bf"> |<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/4b6ffa98-65ae-4509-87f0-8369a8b8d0b9">|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/01f30489-2eec-4eac-a0ab-ea859a38a4d9">|
+|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/d02b1043-d86b-4fbc-8fac-a792c89fbe4c">  |  <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/8c4c5591-29f2-4dc8-a2b5-1623d28d4fb0">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/2004a071-6685-492d-b4c8-51b23ce573e2">|
+|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/1012acdb-02f4-47a4-8452-f1685f6894b9"> |<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/f2408ac9-0fea-4d16-aff4-a8b022bd46e6">|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/3be12c5b-3d47-46c3-9c92-7585e119c99e">|
+|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/0dfc7220-baff-4d1f-9323-97500fc5a2ff"> |<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/abffe2d3-3429-44b5-a40d-f4dd96079231">|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/2ecbae98-fb3e-41fb-bd90-0ea27b939781">|
+|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/f613737d-d737-4086-a221-f9902060847f"> |<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/a22242e8-b455-4345-90a4-b772c044f284">|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/6706204d-3a59-471e-86b1-b1065c892c0d">|
+|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/096a7dd8-a039-4239-bf59-ec5b7a537089"> |<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/7f606f4f-4c10-4577-ad8e-e3b778cab894">|<img width="1604" alt="image of process" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/25c4529b-d7b9-468d-bd3e-508bf7961152">|
+|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/b044dd03-ff94-4a6e-b3f6-910f1cfb46d8">  |  <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/2c9b1512-4f8b-45bf-ba5e-d56ff6a2e024">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/7e6c6609-15f1-448f-a3ac-b35b418c5422">|
+|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/ec4029cd-2316-4c9e-8ab8-a6655c9422ac">  |  
 
