@@ -16,4 +16,4 @@ for [Interactive Device Design](https://github.com/FAR-Lab/Developing-and-Design
 
 [Final Project](https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/blob/2023Fall/FinalProject.md)
 
-[Online Repository](https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/blob/2023Fall/FinalProject.md)
+[Online Repository](https://github.com/shaiman12/Interactive-Lab-Hub)
