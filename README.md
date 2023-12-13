@@ -1,4 +1,4 @@
-# Rachel Minkowitz's Interactive-Lab-Hub
+# Shai Aarons's Interactive-Lab-Hub
 
 for [Interactive Device Design](https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/)
 
