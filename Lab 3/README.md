@@ -248,7 +248,7 @@ The system integrates the Vosk toolkit for offline speech recognition and utiliz
 
 The program is designed to interpret user input and either provide the most relevant song based on the user's mood or directly play a song being requested.
 
-[*Include videos or screencaptures of both the system and the controller.*](https://drive.google.com/file/d/1N2bTheywNG519HbHWdE2rQMpZ0_qjqzU/view?usp=sharing)
+[*Include videos or screencaptures of both the system and the controller.*](https://drive.google.com/file/d/1PsUR1HKVEBgOHcPKx1PeNs7HyLjAHvFd/view)
 
 
 ## Test the system

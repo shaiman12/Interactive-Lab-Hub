@@ -270,10 +270,8 @@ Storyboard #8:<br>
 - Instead of a sudden change of color for our couple mood prototype, maybe a slow ombre transition into a different color for a different mood, can help couples understand when their partner is about to feel or experience a specific mood and perhaps attend to their partner needs before they fully experience it. Kind of like knowing what your partner is feeling before they fully experience it. I imagine this can help mitigate a lot of situations in  a relationship.
 
 **Part D: Wizarding**
-
-link to wizarding video: https://drive.google.com/file/d/1bWOX8KXgtKtjn_A96WFcQdO8k17_xp1A/view?usp=share_link<br>
+link to video: https://drive.google.com/file/d/1bWOX8KXgtKtjn_A96WFcQdO8k17_xp1A/view?usp=share_link
 disclaimer:  this video does not include the sound effects included in our device
-
 **Part E:**
 <br>
 \*\***Include sketches of what your devices might look like here.**\*\*
