@@ -1,0 +1,20 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "for qr code generation/unlocking - final project idd cool team",
+  "main": "index.js",  
+  "engines": {
+    "node": "14.18.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/nodemon/bin/nodemon.js -e ts  --exec \"npm run compile\"",
+    "start": "node --max_old_space_size=2560 index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "qrcode": "^1.5.3"
+  }
+}
