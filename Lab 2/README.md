@@ -16,10 +16,7 @@ Does it feel like time is moving strangely during this semester?
 
 For our first Pi project, we will pay homage to the [timekeeping devices of old](https://en.wikipedia.org/wiki/History_of_timekeeping_devices) by making simple clocks.
 
-It is worth spending a little time thinking about how you mark time, and what would be useful in a clock of your own design.
-
-**Please indicate anyone you collaborated with on this Lab here.**
-Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
+It is worth spending a little time thinking about how you mark time, and what would be useful in a clock of your own design. 
 
 ## Prep
 
@@ -59,8 +56,6 @@ Prior to the lab session on Thursday, taken inventory of the kit parts that you 
 [Follow these instructions](prep.md) to download and burn the image for your Raspberry Pi before lab Thursday.
 
 
-
-
 ## Overview
 For this assignment, you are going to 
 
@@ -78,10 +73,6 @@ F) [Make a short video of your modified barebones PiClock](#part-f)
 
 G) [Sketch and brainstorm further interactions and features you would like for your clock for Part 2.](#part-g)
 
-## The Report
-This readme.md page in your own repository should be edited to include the work you have done. You can delete everything but the headers and the sections between the \*\*\***stars**\*\*\*. Write the answers to the questions under the starred sentences. Include any material that explains what you did in this lab hub folder, and link it in the readme.
-
-Labs are due on Mondays. Make sure this page is linked to on your main class hub page.
 
 ## Part A. 
 ### Connect to your Pi
@@ -214,19 +205,8 @@ Please sketch/diagram your clock idea. (Try using a [Verplank digram](http://www
 <img src="media/sketch1.jpg">
 <img src="media/sketch2.jpeg">
 
-***Museum artwork by Rachel Minkowitz***
+****Museum artwork by Rachel Minkowitz**
 
-\*\*\***A copy of your code should be in your Lab 2 Github repo.**\*\*\*
-
-After you edit and work on the scripts for Lab 2, the files should be upload back to your own GitHub repo! You can push to your personal github repo by adding the files here, commiting and pushing.
-
-```
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ git add .
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ git commit -m 'your commit message here'
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ git push
-```
-
-After that, Git will ask you to login to your GitHub account to push the updates online, you will be asked to provide your GitHub user name and password. Remember to use the "Personal Access Tokens" you set up in Part A as the password instead of your account one! Go on your GitHub repo with your laptop, you should be able to see the updated files from your Pi!
 
 **DESCRIPTION**
 
@@ -265,16 +245,9 @@ In a future iteration, we plan to allow the user to interact with the app using 
 
 1. Pick up remaining parts for kit on Thursday lab class. Check the updated [parts list inventory](partslist.md) and let the TA know if there is any part missing.
   
-
 2. Look at and give feedback on the Part G. for at least 2 other people in the class (and get 2 people to comment on your Part G!)
 
 # Lab 2 Part 2
-
-Pull Interactive Lab Hub updates to your repo.
-
-Modify the code from last week's lab to make a new visual interface for your new clock. You may [extend the Pi](Extending%20the%20Pi.md) by adding sensors or buttons, but this is not required.
-
-In part 2 of the lab, we extend our device to have a new interface that requires interaction with users. Taking in feedback from peers, we extend the Astrology clock to include features that make the purpose of the clock more clear. We also enable the user to interact with the clock by using the buttons on the device interface. We document all our changes below:
 
 tl;dr: steps to work the clock:
 1. with this repo on your local pi machine run `screen_clock.py` -> you should see the horoscope clock
@@ -287,10 +260,12 @@ tl;dr: steps to work the clock:
 
 A. We added a text interface on top of the clock display to demonstrate to users the progress through an astrological period. We show the progress through the astrological period via a percentage point. For example, on September 17th, we are 81% through the Virgo horoscope sign. Based on feedback from peers, we also have included instructive information about how to use the device with the comment: "Press any button to continue." This is shown below:
 
+
 <img width="483" alt="268529167-121c11f0-38e1-45f8-9162-23f09a794705" src="https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/2fd2b1f4-545c-4e1c-923b-82fb8dd5cdc1">
 
-
+<br>
 B. We added daily horoscope functionality to the device. A horoscope is defined as "a forecast of a person's future, typically including a delineation of character and circumstances, based on the relative positions of the stars and planets at the time of that person's birth." Our device can now fetch a user's daily horoscope based on their astrological sign (i.e. Leo, Virgo, Libra) and today's position of the horoscope on the astrology clock. In order to do this - we added a second interface for the user to interact with after they are prompted to press either button. The second interface allows users to scroll through the available star signs (according to their birth date) and make their selection. The user selects their sign by pressing both of the available buttons at the same time while the arrow is pointing at their selected sign. Once the user selects their sign, they are shown their daily horoscope reading on a new screen. We fetch daily horoscopes for users via API calls and web scraping using the Python library Beautiful Soup. The user can then go back to the available star signs by pressing both buttons at the same time again, as well as return to the clock by selecting to exit the horoscope menu. Some of these interfaces are shown below:
+
 <img width="852" alt="268529522-a2681741-5a59-49a4-9bff-5b7ca71ad8cd" src="https://github.com/RachMink/Interactive-Lab-Hub/assets/82296790/bb9fb3e8-d979-41c6-bb5a-fd3644bde976">
 
 
