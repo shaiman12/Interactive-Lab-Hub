@@ -1,6 +1,17 @@
 # Observant Systems
 
-**NAMES OF COLLABORATORS HERE**
+
+**COLLABORATORS:**
+
+**Shai Aarons (sla88)**
+
+**Ariana Bhigroog (ab2959)**
+
+**Jon Caceres (jc3569)**
+
+**Rachel Minkowitz (rhm256)**
+
+**Amando Xu (ax45)**
 
 
 For lab this week, we focus on creating interactive systems that can detect and respond to events or stimuli in the environment of the Pi, like the Boat Detector we mentioned in lecture. 
@@ -15,15 +26,10 @@ This lab will help you think through the design of observant systems, particular
 3.  Read about [OpenCV](https://opencv.org/about/),[Pytorch](https://pytorch.org/), [MediaPipe](https://mediapipe.dev/), and [TeachableMachines](https://teachablemachine.withgoogle.com/).
 4.  Read Belloti, et al.'s [Making Sense of Sensing Systems: Five Questions for Designers and Researchers](https://www.cc.gatech.edu/~keith/pubs/chi2002-sensing.pdf).
 
-### For the lab, you will need:
-1. Pull the new Github Repo
-1. Raspberry Pi
-1. Webcam 
-
 ### Deliverables for this lab are:
 1. Show pictures, videos of the "sense-making" algorithms you tried.
-1. Show a video of how you embed one of these algorithms into your observant system.
-1. Test, characterize your interactive device. Show faults in the detection and how the system handled it.
+2. Show a video of how you embed one of these algorithms into your observant system.
+3. Test, characterize your interactive device. Show faults in the detection and how the system handled it.
 
 ## Overview
 Building upon the paper-airplane metaphor (we're understanding the material of machine learning for design), here are the four sections of the lab activity:
@@ -85,7 +91,6 @@ To get started, install dependencies into a virtual environment for this exercis
 Each of the installs will take a while, please be patient. After successfully installing mediapipe, connect your webcam to your Pi and use **VNC to access to your Pi**, open the terminal, and go to Lab 5 folder and run the hand pose detection script we provide:
 (***it will not work if you use ssh from your laptop***)
 
-
 ```
 (venv-ml) pi@ixe00:~ $ cd Interactive-Lab-Hub/Lab\ 5
 (venv-ml) pi@ixe00:~ Interactive-Lab-Hub/Lab 5 $ python hand_pose.py
@@ -136,24 +141,70 @@ In an earlier version of this class students experimented with foundational comp
 * This can be as simple as the boat detector showen in a previous lecture from Nikolas Matelaro.
 * Try out different interaction outputs and inputs.
 
+**Ideation**
 
-**\*\*\*Describe and detail the interaction, as well as your experimentation here.\*\*\***
+1. E-cig/Vape recognizer - this model would recognize gestures that people who e-cig inconspicuously make
+2. Calorie counter - this model would look at a food item and tell the user whether it's a healthy option or not
+3. Watering the "Plants" - this model would recognize whether a houseplant needs to be watered according to leaf health and would spray the plant with water accordingly
+
+**Experimentation**
+
+We had initially started teaching the model based on healthy and unhealthy leaf datasets. We started with using 150 images per class but then saw that the set needed to be enlarged for the model to recognize and classify... When we added additional data, the model was able to discern between healthy and unhealthy leaves, but was not able to use it's knowledge to identify healthy/unhealthy _plants_. <br>
+<img width="901" alt="Screen Shot 2023-10-26 at 7 02 25 PM" src="https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/ac4461ee-5b43-482f-8306-57ce27b89405">
+
+When we realized that our dataset was not purposeful for our interaction, we started looking for healthy/unhealthy plant datasets... Initially we could not find a proper dataset so were going to pivot. Our pivoted idea was to train the models on house-plants and cacti. When the camera would identify a house-plant it would spray water and when it would identify a cactus, it wouldnt spray anything. In search of a houseplant dataset we found a perfect dataset for our initial healthy/unhealthy plant idea :) 
+
+Our dataset is from Kaggle: "Healthy and Wilted Houseplant Images" created by RUSSELL CHAN, https://www.kaggle.com/datasets/russellchan/healthy-and-wilted-houseplant-images
+The data includes:
+1. 452 images of healthy plants
+2. 452 images of wilted plants
+   
+Using Teachable Machines we developed a lightweight classification model to distinguish between healthy and wilted houseplants. We leveraged a dataset of 904 labeled images from Kaggle.com. This dataset provides a binary classification categorizing each plant as either healthy or wilted. Using Teachable Machines for this offers several advantages over more complex CV libraries such as OpenCV and MediaPipe. We used OpenCV in Lab 4 and although it worked as expected, it's a bit extensive, offering lots of customizable parameters--conversely with a challenging learning curve. MediaPipe is easier to use, although not as customizable because it provides less control compared to OpenCV. Teachable Machines on the other hand provides a nice balance, since it offers a super easy to use UI and requires minimal coding experience which accelerates the development process and makes ML way more accessible to a wider audience. Some of the members on our team do not have ML experience so this was helpful for them. Teachable Machines' has a UI that allows its users to drag and drop images, easily change training settings, and test it out quickly using a webcam and file inputs. It also allows for easy deployment, letting its users export the model to Python and other languages. We simply needed to import the model, import a few dependencies (such as TensorFlow) and run the script and it worked (although the recognition isn't super accurate).
+
+![Screenshot 2023-10-27 at 11 28 58 AM](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/3fae6fb9-60ce-4f94-b8f9-fe1dc44d2886)
+
+**Interaction**
+
+The goal for our interaction is for the system to be pointed at a plant perpetually. As time passes, the system is able to classify the plant correctly into the healthy/wilted classes and when the system classifies that pllant as wilted, an automatic spray bottle mechanism that we create sprays the plant with water accordingly.
 
 ### Part C
 ### Test the interaction prototype
 
 Now flight test your interactive prototype and **note down your observations**:
-For example:
-1. When does it what it is supposed to do?
-1. When does it fail?
-1. When it fails, why does it fail?
-1. Based on the behavior you have seen, what other scenarios could cause problems?
+
+* When does it what it is supposed to do?<br>
+We tested this model live using a real healthy houseplant. On the pi, the exported model was able to classify the health correctly when the background was simple and the leaves were close enough to the camera. Additionally, while training on Teachable Machine's website, the model accurately classified the plant that we showed it using the computer webcam and uploaded picture.
+ 
+* When does it fail?<br>
+Currently, the model fails most of the time, where we will show it a healthy plant and instead of classfying it as 'healthy' it'll classify it as 'unhealthy'. It seems that the dataset we taught the model on was not extensive enough and maybe too variable.
+
+* When it fails, why does it fail?<br>
+From what it seems at the moment, the recognition fails when the camera picks up some sort of background, it's not familiar with this specific background and classifies the plant into the unhealthy category automatically. It also can be because we used various subjects in training the data. The variability may be confusing the model and it's not sure how to classify.
+
+* Based on the behavior you have seen, what other scenarios could cause problems?<br>
+We also noticed a huge lag in the camera, where there's about a 4 second lag between physical movement and the feedback video on VNC. We were wondering if this had anything to do with the inaccurate classifications but then attributed the misclassifications to the model. Another issue that could be is the model is trained on pictures of all different kinds of houseplants from all different kinds of angles. It may learn better if we were to focus on one houseplant and picture it in a healthy state and an unhealthy state.
+
+![Screenshot 2023-10-27 at 10 31 39 AM](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/1394d3f3-3cb5-40f2-ad39-38d85f50c4bd)
+
+![Screenshot 2023-10-27 at 11 23 57 AM](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/4dd5dcc4-62b3-4d4b-baae-80692ef8c395)
+
+![Screenshot 2023-10-27 at 11 24 36 AM](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/617c195f-8d19-4562-ae6f-70dad810dede)
+
+![Screenshot 2023-10-27 at 11 26 12 AM](https://github.com/ironclock/Interactive-Lab-Hub/assets/82296790/3c6cc11e-95ea-4de4-85d8-b6e3023a1511)
 
 **\*\*\*Think about someone using the system. Describe how you think this will work.\*\*\***
-1. Are they aware of the uncertainties in the system?
-1. How bad would they be impacted by a miss classification?
-1. How could change your interactive system to address this?
-1. Are there optimizations you can try to do on your sense-making algorithm.
+
+* Are they aware of the uncertainties in the system? <br>
+Right now we hope to incorporate this system into a plant spraying mechanism that waters plants when they look wilted. The user would know about the uncertainties of the system if the plant is healthy, yet the spraying machanism is being activated.
+
+* How bad would they be impacted by a miss classification?<br>
+Their plant would probably die of over watering:( 
+
+* How could change your interactive system to address this?<br>
+Maybe, if the system is unsure about its classification, it notifies the user to check whether the plant actually need water or not - hereby leaving the plant owner autonomous and not have plant care solely rely on the wilting of the leaves
+
+* Are there optimizations you can try to do on your sense-making algorithm. <br>
+A problem we are facing is that this model only sprays the plant once its already wilting, while the point of watering plants is in fact so that they dont wilt. Therefore, if we had more time, we could train the model on different phases of plant health so that when the model classifies a plant as 'almost at wilting phase' it could the water the plant as needed.
 
 ### Part D
 ### Characterize your own Observant system
@@ -170,8 +221,64 @@ During the lecture, we mentioned questions to help characterize a material:
 
 **\*\*\*Include a short video demonstrating the answers to these questions.\*\*\***
 
+We could use our healthy/unhealthy houseplant checking system to check whether a plant needs watering. A good environment for this system is a simple environment without many external distractions. A bad enviroment is a place that has lots of unknown items and distracting features. Our houseplant system will break when the background is too distracting and we show it a species of houseplant that it was not trained on. When the system breaks it classifies the unhealthy plant as healthy and the healthy plant as unhealthy. 
+
 ### Part 2.
 
 Following exploration and reflection from Part 1, finish building your interactive system, and demonstrate it in use with a video.
 
+Here's a Video of each component brokendown:
+
+**\*\*\*Moisture Sensor\*\*\***
+
+https://drive.google.com/file/d/1eqbxqAvv343066Td4OO1WjZsW_Xuc21W/view?usp=share_link
+
+**\*\*\*Automatic Light Video\*\*\***
+
+https://drive.google.com/file/d/1dsAs4F7MjBKgOcybmGip9qj8R14dnYSH/view?usp=share_link
+
+**\*\*\*Automatic Light Sensor Video\*\*\***
+
+https://drive.google.com/file/d/1EDrI4Cds7Yf1rL8-tIJCDwsCeZeUTWtd/view?usp=share_link
+
+**\*\*\*Automatic Spray Bottle\*\*\***
+
+https://drive.google.com/file/d/1dsAs4F7MjBKgOcybmGip9qj8R14dnYSH/view?usp=share_link
+
+**\*\*\*All Components are a GO!\*\*\***
+
+https://drive.google.com/file/d/1jSBQGLXfM9FmcNAdjuEmpqtBh4voe7LB/view?usp=share_link
+
 **\*\*\*Include a short video demonstrating the finished result.\*\*\***
+
+https://drive.google.com/file/d/1YD-hy1zl-Sb0TYCLaM_c_mz5QjZ87-uz/view?usp=sharing
+
+**\*\*\*Process walkthrough\*\*\***
+
+Our project script does several things:
+
+1. It runs a computer vision model with camera dection to classify whether our house plant is healthy/unhealthy, and it displays the classification on the OLED screen.
+2. It utilizes a moisture sensor to detect moisture of the soil. If it detects less than 55% moisture, it triggers a servo that sprays water (indicating that the plant is lacking water). Once the moisture percentage is above 55%, it deactivates the servo indicating that the plant is not in need of moisture at the moment.
+3. It flips on a switch to turn on a light sensor when the LUX value is below 50, that is the threshold specified for indicating darkness. 
+4. It flips off the switch to turn off the light sensor when the LUX value is above 50, that is the threshold specified for indicating light.
+
+The 'final_run.py' script is a script combining all the moving parts of our project. It controls lighting and watering systems, utilizes computer vision for plant health monitoring, and displays the status on an OLED screen. 
+
+Here's a breakdown of its functions:
+
+- Hardware Interface: It manages hardware components including servos, a light sensor, a moisture sensor, and an OLED display via I2C and GPIO interfaces on a microcontroller platform like Raspberry Pi.
+
+- Servo Control: Two servos are configured to operate a light switch and a water spray mechanism.
+
+- Sensor Reading: It reads ambient light levels and soil moisture content to maintain appropriate growing conditions.
+
+- Computer Vision: The script uses a pre-trained machine learning model to analyze images from a camera and determine the health of the plant.
+
+- Display Output: Information about the plant's health is displayed on an OLED screen.
+
+- Main Operational Loop: The script runs in a continuous loop, adjusting the light and water spray based on sensor readings and updating the plant health status on the OLED display.
+
+The script is intended for an automated gardening system, ensuring plants receive optimal care with minimal human intervention.
+
+
+
